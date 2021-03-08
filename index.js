@@ -1,5 +1,5 @@
 const { inquirerMenu, inquirerInput } = require('./helpers/inquirer')
-const TaskRepository = require('./repositories/TaskRepository');
+const { getAllTask, createTask } = require('./services/fileService');
 
 const main = async () => {
     const taskRepository = new TaskRepository();
@@ -18,12 +18,12 @@ const main = async () => {
     
                 const title = await inquirerInput('Task Title');
     
-                taskRepository.createTask(title);
+                createTask(title);
        
                 break;
     
             case 2:
-                const allTasks = taskRepository.getAllTask();
+                const allTasks = getAllTask();
                 console.log(allTasks);
     
                 //TODO: Mostrar lista de tareas de la base de datos

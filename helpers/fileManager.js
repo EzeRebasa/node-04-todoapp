@@ -10,7 +10,7 @@ const getData = () => {
     
     if( !fs.existsSync(name)){
         return null;
-    }
+    }let user = JSON.parse( sessionStorage.user )
 
     const data = fs.readFileSync(name, {encoding: 'utf8'});
 
